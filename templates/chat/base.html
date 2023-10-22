@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Varsayılan Başlık{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Diğer stil dosyaları ve harici bağlantılar burada olabilir -->
+</head>
+<body>
+    <header>
+        <!-- Burada site başlığı, menü, vb. olabilir -->
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <footer>
+        <!-- Alt bilgi, telif hakkı bilgileri, vb. burada olabilir -->
+    </footer>
+    
+    <!-- JavaScript dosyaları ve diğer betikler burada olabilir -->
+</body>
+</html>
