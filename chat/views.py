@@ -6,6 +6,17 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from .models import Room, Message
 from django.contrib.auth.decorators import login_required
+from .forms import KayitFormu
+
+
+
+
+
+
+
+
+
+
 
 @login_required(login_url="/login/")
 def index(request):
@@ -36,6 +47,22 @@ def start_chat(request,username):
         except Room.DoesNotExist:
             room = Room.objects.create(first_user=request.user,second_user=second_user)
     return redirect("room", room_name=room.id)
+
+def kayit(request):
+    if request.method == "POST":
+        form = KayitFormu(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Kullanıcıyı oturum açık olarak işaretle
+            return redirect("/login")  # Kayıt başarılıysa ana sayfaya yönlendir
+    else:
+        form = KayitFormu()
+    
+    return render(request, "chat/register.html", {"form": form})
+
+
+
+
 
     
 

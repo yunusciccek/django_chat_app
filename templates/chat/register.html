@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    
+    <form method="post" action="{% url 'register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-box">
+            <span><i class="fa fa-user-o"></i></span>
+            <input type="text" name="username" placeholder="Kullanıcı Adı" required>
+            {% if form.username.errors %}
+                <div class="error">{{ form.username.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="input-box">
+            <span><i class="fa fa-user-o"></i></span>
+            <input type="text" name="first_name" placeholder="Ad" required>
+            {% if form.first_name.errors %}
+                <div class="error">{{ form.first_name.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="input-box">
+            <span><i class="fa fa-user-o"></i></span>
+            <input type="text" name="last_name" placeholder="Soyad" required>
+            {% if form.last_name.errors %}
+                <div class="error">{{ form.last_name.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="input-box">
+            <span><i class="fa fa-envelope-o"></i></span>
+            <input type="email" name="email" placeholder="E-Posta Adresi" required>
+            {% if form.email.errors %}
+                <div class="error">{{ form.email.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="input-box">
+            <span><i class="fa fa-key"></i></span>
+            <input type="password" id="password1" name="password1" placeholder="Şifre" required>
+            {% if form.password1.errors %}
+                <div class="error">{{ form.password1.errors }}</div>
+            {% endif %}
+        </div>
+        <div class="input-box">
+            <span><i class="fa fa-key"></i></span>
+            <input type="password" id="password2" name="password2" placeholder="Şifre (Tekrar)" required>
+            {% if form.password2.errors %}
+                <div class="error">{{ form.password2.errors }}</div>
+            {% endif %}
+        </div>
+        {% if not form.profile_picture.value %}
+        {% with default_profile_picture='path_to_default_profile_picture.png' %}
+            <div class="input-box">
+                <label for="profile_picture"><i class="fa fa-camera"></i> Profil Fotoğrafı Ekle</label>
+                <input type="file" name="profile_picture" id="profile_picture" accept="image/*">
+            </div>
+            <img src="{{ MEDIA_URL }}profile_pictures/{{ default_profile_picture }}" alt="Default Profile Picture">
+        {% endwith %}
+    {% endif %}
+        
+        <br>
+        <br>
+        <button type="submit"><i class="fa fa-sign-in"></i>Kayıt Ol</button>
+    </form>
+    
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
