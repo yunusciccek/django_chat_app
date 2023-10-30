@@ -8,6 +8,6 @@ from chat import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("chat/", include("chat.urls")),
-    path('login/', views.user_login, name='user_login'),
+    path('', views.user_login, name='user_login'),
     path('register/', views.kayit, name='register'),
 ]

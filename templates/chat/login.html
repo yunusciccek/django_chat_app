@@ -24,6 +24,8 @@
         <br>
         <br>
         <button type="submit"><i class="fa fa-sign-in"></i>Giriş Yap</button>
+        <p>Hesabınız yok mu? <a href="{% url 'register' %}">Kayıt Ol</a></p>
+
     </form>
     {% if error_message %}
         <p>{{ error_message }}</p>
