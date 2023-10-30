@@ -1,5 +1,7 @@
 # Canlı Chat Uygulaması
 
+# WEB APP LİNKİ:http://yunusciccek.pythonanywhere.com/
+
 Bu proje, Django, WebSocket, Redis ve JavaScript kullanarak geliştirdiğim canlı bir sohbet uygulamasıdır. Aynı zamanda kullanıcıların profil oluşturmasına, kayıt olmasına ve giriş yapmasına olanak tanır.
 
 ## Özellikler
